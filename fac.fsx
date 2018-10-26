@@ -1,7 +1,7 @@
-let rec fac n =
+let rec fac acc n =
     match n with
-    | 1 -> 1
-    | _ -> n * fac (n-1)
+    | 1 -> acc
+    | _ -> fac (n * acc) (n-1)
 
 for i in [1..10] do
-    printfn "fac (%d) is: %d" i <| fac i
+    printfn "fac (%d) is: %d" i <| fac 1 i
